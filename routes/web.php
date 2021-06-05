@@ -41,8 +41,6 @@ Route::view('solicitudsa','solicitudsa.solicitudsa');
 
 Route::view('docentes', 'docentes.docentes');
 
-
-//Vistas de docentes
 //configuracion
 Route::view('configuracion','docentes.configuracion');
 //historialsolicitudes
