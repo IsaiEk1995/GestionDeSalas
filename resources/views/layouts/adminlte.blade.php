@@ -5,6 +5,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>@yield('titulo')</title>
 
+<!-- Favicons -->
+  <link href="img/logoutc.png" rel="icon">
+  <link href="img/logoutc.png" rel="logoutc.png">
 
    {{--TOKEN PARA CAMBIOS--}}
     <meta name="token" id="token" value="{{ csrf_token() }}">
@@ -29,14 +32,34 @@
   <!-- summernote -->
   <link rel="stylesheet" href="adminlte/plugins/summernote/summernote-bs4.css">
 
+  <!--font awesome con CDN-->  
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">  
 
-    <script type="text/javascript" src="js/vue.js"></script>
-    <script src="js/jquery.min.js"></script>
+  <!--  Agregar iconos -->
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+
+  <!--  Para Formulario -->
+  <link rel="stylesheet" href="form_validation/bootstrap4/css/bootstrap.min.css">  
+  <link rel="stylesheet" href="form_validation/estilos.css">
+
+  <!-- Complementos -->
+  <script type="text/javascript" src="js/vue.js"></script>
+  <script src="js/jquery.min.js"></script>
+
+  <!-- Alertas -->
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <!-- Para Paginado -->
+<!-- <link href="https://unpkg.com/vanilla-datatables@latest/dist/vanilla-dataTables.min.css" rel="stylesheet" type="text/css">
+<script src="https://unpkg.com/vanilla-datatables@latest/dist/vanilla-dataTables.min.js" type="text/javascript"></script> -->
+<link href="DataTables/dist/vanilla-dataTables.min.css" rel="stylesheet" type="text/css">
+<script src="DataTables/dist/vanilla-dataTables.min.js" type="text/javascript"></script>
+
+<!-- <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet"> -->
 
 
-  <!-- Google Font: Source Sans Pro -->
-<!--   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-</head> -->
+
+</head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
@@ -47,118 +70,36 @@
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
-      <!-- <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
-      </li> -->
-     <!--  <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
-      </li> -->
     </ul>
 
-    <!-- SEARCH FORM -->
-    <!-- <form class="form-inline ml-3">
-      <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form> -->
+   <!-- Right navbar links -->
+   <ul class="navbar-nav ml-auto">
+ <!-- User Account Menu -->
+ <li class="dropdown user user-menu">
+            <!-- Menu Toggle Button -->
+            <a href="#" data-toggle="dropdown">
+              <!-- The user image in the navbar-->
+              <img src="adminlte/dist/img/user8.jpg" class="user-image" alt="User Image">
+              <!-- hidden-xs hides the username on small devices so only the image appears. -->
+            </a>
+            <ul class="dropdown-menu">
+              <!-- The user image in the menu -->
+              <li class="user-header">
+                <img src="adminlte/dist/img/user8.jpg" class="rounded-circle" alt="User Image">
 
-    <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto">
-      <!-- Messages Dropdown Menu -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-comments"></i>
-          <span class="badge badge-danger navbar-badge">3</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <!-- <div class="media">
-              <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Brad Diesel
-                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">Call me whenever you can...</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div> -->
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="adminlte/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  John Pierce
-                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">I got your message bro</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="adminlte/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Nora Silvester
-                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">The subject goes here</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-        </div>
-      </li>
-      <!-- Notifications Dropdown Menu -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-bell"></i>
-          <span class="badge badge-warning navbar-badge">15</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header">15 Notifications</span>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-envelope mr-2"></i> 4 new messages
-            <span class="float-right text-muted text-sm">3 mins</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-users mr-2"></i> 8 friend requests
-            <span class="float-right text-muted text-sm">12 hours</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-file mr-2"></i> 3 new reports
-            <span class="float-right text-muted text-sm">2 days</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-          <i class="fas fa-th-large"></i>
-        </a>
-      </li>
+                <p class="font-italic">
+                  {{Session::get('usuario')}} - 
+                  {{Session::get('rol')}}
+                </p>
+              </li>
+              <!-- Menu Footer-->
+              <li class="user-footer">
+                <div class="pull-center">
+                <center><a href="{{url('/')}}" class="btn btn-outline-info btn-flat">Salir</a></center>
+                </div>
+              </li>
+            </ul>
+          </li>
     </ul>
   </nav>
   <!-- /.navbar -->
@@ -167,22 +108,14 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
-      <img src="adminlte/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+      <img src="adminlte/dist/img/UTC.jpg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">Gestión De Salas</span>
+      <span class="brand-text font-italic">Gestión De Salas</span>
     </a>
 
     <!-- Sidebar -->
     <div class="sidebar">
-      <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="adminlte/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-        </div>
-        <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
-        </div>
-      </div>
+    
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
@@ -191,11 +124,21 @@
                with font-awesome or any other icon font library -->
 
          <!-- Menu de navegacion-->             
-        <li class="nav-header">APARATADOS</li>
-          <li class="nav-item">
+       <center><li class="nav-header"><p class="font-italic">APARATADOS</p></li></center> 
+
+        <li class="nav-item">
+              <a href="escritorio" class="nav-link">
+              <i class="nav-icon fas fa-home"></i>
+              <p class="font-italic">
+                Escritorio
+              </p>
+            </a>
+        </li>
+          
+        <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
-              <p>
+              <i class="nav-icon fas fa-school"></i>
+              <p class="font-italic">
                 Salas
                 <i class="right fas fa-angle-left"></i>
               </p>
@@ -204,22 +147,22 @@
               <li class="nav-item">
                 <a href="sala" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Administrar Salas</p>
+                  <p class="font-italic">Administrar Salas</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="recurso" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Administrar Recurso</p>
+                  <p class="font-italic">Administrar Recurso</p>
                 </a>
               </li>
             </ul>
-          </li> 
+        </li> 
 
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="fa fa-folder-open "></i>
-              <p>
+              <i class="nav-icon fas fa-id-card-alt "></i>
+              <p class="font-italic">
                 Solicitudes
                 <i class="right fas fa-angle-left"></i>
               </p>
@@ -228,13 +171,19 @@
               <li class="nav-item">
                 <a href="solicitudsa" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Solicitudes Salas</p>
+                  <p class="font-italic">Solicitudes Salas</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="solicitudre" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Solicitudes Recurso</p>
+                  <p class="font-italic">Solicitudes Pendientes</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="solicitudre" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p class="font-italic">Solicitudes Canceladas</p>
                 </a>
               </li>
             </ul>
@@ -242,8 +191,8 @@
           
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-chart-pie"></i>
-              <p>
+              <i class="nav-icon fas fa-cog"></i>
+              <p class="font-italic">
                 Configuraciones
                 <i class="right fas fa-angle-left"></i>
               </p>
@@ -252,23 +201,33 @@
               <li class="nav-item">
                 <a href="horas" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Horarios</p>
+                  <p class="font-italic">Horarios</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="docentes" class="nav-link">
+                <a href="administradores" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Usuarios</p>
+                  <p class="font-italic">Usuarios</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="galeria" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Galería</p>
+                  <p class="font-italic">Galería</p>
                 </a>
               </li>
             </ul>
-          </li>                
+          </li>   
+
+          <!--<li class="nav-item">
+            <a href="administradores" class="nav-link">
+              <i class="nav-icon fas fa-user"></i>
+              <p class="font-italic">
+                Administradores
+              </p>
+            </a>
+          </li>-->
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

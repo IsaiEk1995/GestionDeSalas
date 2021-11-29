@@ -41,16 +41,30 @@ new Vue({
 			});
 		},
 
-		eliminarSal:function(id){
-			var resp=confirm("¿Estas Seguro Que Deseas Eliminar?")
-			if(resp==true)
-			{
+		eliminarSal:function(id){			
+			Swal.fire({
+				title: 'Estas Seguro Que Deseas Eliminar?',
+				text: "",
+				icon: 'warning',
+				showCancelButton: true,
+				confirmButtonColor: '#3085d6',
+				cancelButtonColor: '#d33',
+				confirmButtonText: 'Si, Eliminar!'
+			  }).then((result) => {
+				if (result.isConfirmed) {
+						
 				this.$http.delete(urlSal + '/' + id)
 				.then(function(json){
 				this.getSal();
 				});
-			}
-			
+
+				  Swal.fire(
+					'Eliminado Exitosamente!',
+					'',
+					'success'
+				  )
+				}
+			  });
 		},
 
 		agregarSal:function(){
@@ -66,8 +80,15 @@ new Vue({
 
 			this.$http.post(urlSal,Sal)
 			.then(function(response){
+				Swal.fire({
+					position:"center",
+					icon:"success",
+					title:"¡Agregado Exitosamente!",
+					showConfirButton: false,
+					timer: 2000,
+				});
 				this.getSal();
-				alert('Se Ha Agregado Con Exito');
+				
 			});
 
 		},
@@ -83,8 +104,16 @@ new Vue({
 
 			this.$http.patch(urlSal + '/' + id,Sal)
 			.then(function(json){
+				Swal.fire({
+					position:"center",
+					icon:"success",
+					title:"¡Actualizado Exitosamente!",
+					showConfirButton: false,
+					timer: 2000,
+				});
 				this.getSal();
 				this.limpiar();
+
 			})
 		},
 
@@ -97,14 +126,14 @@ new Vue({
 
 	},
 
-	computed:{
-		filtroSal:function(){
-			return this.salas.filter((x)=>{
-				return x.nombre.match(this.buscar.trim()) ||
-					x.nombre.toLowerCase()
-					 .match(this.buscar.trim().toLowerCase());
-	});
-	},
-	},
+	// computed:{
+	// 	filtroSal:function(){
+	// 		return this.salas.filter((x)=>{
+	// 			return x.nombre.match(this.buscar.trim()) ||
+	// 				x.nombre.toLowerCase()
+	// 				 .match(this.buscar.trim().toLowerCase());
+	// });
+	// },
+	// },
 
 });

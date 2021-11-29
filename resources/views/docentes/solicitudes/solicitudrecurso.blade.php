@@ -1,5 +1,5 @@
-@extends('layouts.teachersview')
-@section('titulo','Solicitud de RECURSO')
+@extends('layouts.adminltedocentes')
+@section('titulo','Solicitud de Recurso')
 @section('contenido')
 
 <div>

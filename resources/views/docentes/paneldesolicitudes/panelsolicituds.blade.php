@@ -1,4 +1,4 @@
-@extends('layouts.teachersview')
+@extends('layouts.adminltedocentes')
 @section('titulo','Panel de Solicitudes')
 @section('contenido')
 
