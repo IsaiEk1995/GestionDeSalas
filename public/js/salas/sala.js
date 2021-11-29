@@ -49,7 +49,7 @@ new Vue({
 				showCancelButton: true,
 				confirmButtonColor: '#3085d6',
 				cancelButtonColor: '#d33',
-				confirmButtonText: 'Si, Eliminar!'
+				confirmButtonText: 'Eliminar!'
 			  }).then((result) => {
 				if (result.isConfirmed) {
 						
@@ -126,14 +126,13 @@ new Vue({
 
 	},
 
-	// computed:{
-	// 	filtroSal:function(){
-	// 		return this.salas.filter((x)=>{
-	// 			return x.nombre.match(this.buscar.trim()) ||
-	// 				x.nombre.toLowerCase()
-	// 				 .match(this.buscar.trim().toLowerCase());
-	// });
-	// },
-	// },
-
+	computed:{
+		filtroSal:function(){
+			return this.salas.filter((x)=>{
+				return x.nombre.match(this.buscar.trim()) ||
+					x.nombre.toLowerCase()
+					 .match(this.buscar.trim().toLowerCase());
+				});
+			},
+		},
 });

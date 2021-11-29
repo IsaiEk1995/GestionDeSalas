@@ -1,45 +1,50 @@
-@extends('layouts.adminlte')
+@extends('layouts.plantilla')
 @section('titulo','Recursos')
 @section('contenido')
 
-<div id="recurso" class="container">
-    <div class="row">
-      <div class="col">
-        <table class="table table-striped table-bordered">
+<br>
 
-        <button class="fa fa-plus-square btn btn-lg btn-warning" data-toggle="modal" data-target="#agregar"></button>
+<center><button class="fa fa-plus-square btn btn-lg btn-success" data-toggle="modal" data-target="#agregar"></button>
+</center>
 
-        <br>
-        <br>
+<br>
+
+<div class="table_responsive" id="recurso">
+  <table>
+
+    <div class="inputWithIcon">
+      <input type="text" placeholder="Buscar Por Nombre" v-model="buscar">
+      <i class="fa fa-search fa-lg fa-fw" aria-hidden="true"></i>
+    </div>
+  <br>
+
+    <thead>
+      <tr>
+        <th><center><p class="font-italic">No. Recurso</p></center></th>
+        <th><center><p class="font-italic">Nombre Del Recurso</p></center></th>
+        <th><center><p class="font-italic">Opciones</p></center></th>
         
-          <thead style="background-color:#207197">
-            <tr>
-              <th><center><p class="font-italic">No. Recurso</p></center></th>
-              <th><center><p class="font-italic">Nombre Recurso</p></center></th>
-              <th><center><p class="font-italic">Opciones</p></center></th>
-            </tr>
+      </tr>
+    </thead>
 
-          </thead>
-          
-            <tbody>
-              <tr v-for="recurso in recursos">
-                <td><center><p class="font-italic">@{{recurso.id_recurso}}</p></center></td>
-                <td><center><p class="font-italic">@{{recurso.recurso}}</p></center></td>
-                <!--<td><center>@{{sala.cupo}}</center></td>-->
-                
-                <td>
-                 <center><span class="fa fa-pencil btn btn-xs btn-primary" data-toggle="modal" data-target="#editarRec" v-on:click="guardarRec(recurso.id_recurso)"></span>
+    <tbody>
+      <tr v-for="(recurso,index) in filtroRec">
+        <td><center><p class="font-italic">@{{recurso.id_recurso}}</p></center></td>
+        <td><center><p class="font-italic">@{{recurso.recurso}}</p></center></td>
+       
+      
+        <td>
+          <center><span class="fa fa-pencil btn btn-xs btn-primary" data-toggle="modal" data-target="#editarRec" v-on:click="guardarRec(recurso.id_recurso)"></span>
+          <span class="fa fa-trash btn btn-xs btn-danger" v-on:click="eliminarRec(recurso.id_recurso)"></span></center></td>
+        </td>
+      </tr>
 
-                  <span class="fa fa-trash btn btn-xs btn-danger" v-on:click="eliminarRec(recurso.id_recurso)"></span></center>
 
-                </td>
-              </tr>
-
-             <!-- Modal Agregar -->
+    <!-- Modal Agregar -->
     <div class="modal fade" id="agregar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
-          <div class="modal-header"  style="background-color:#207197">
+          <div class="modal-header"  style="background-color:orange">
             <!-- <center><h4 class="modal-title" id="exampleModalLabel"><strong class="color">Agregar</strong></h4></center> -->
             <button type="button" class="close" data-dismiss="modal" aria-label="Close" v-on:click="limpiar()">
               <span aria-hidden="true">&times;</span>
@@ -77,7 +82,7 @@
     <div class="modal fade" id="editarRec" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
-          <div class="modal-header"  style="background-color:#207197">
+          <div class="modal-header"  style="background-color:orange">
             <!-- <center><h4 class="modal-title" id="exampleModalLabel"><strong class="color">Editar</strong></h4></center> -->
             <button type="button" class="close" data-dismiss="modal" aria-label="Close" v-on:click="limpiar()">
               <span aria-hidden="true">&times;</span>
@@ -111,10 +116,9 @@
       </div>
     </div>
     <!-- Fin de modal -->
-           </tbody>
-         </table>
-        </div>
-      </div>
+    </tbody>
+  </table>
+</div>
 
 
 @endsection

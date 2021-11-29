@@ -1,4 +1,4 @@
-@extends('layouts.adminlte')
+@extends('layouts.plantilla')
 @section('titulo','Administrar Usuarios')
 @section('contenido')
 
@@ -21,11 +21,11 @@
 				<th><center><p class="font-italic">No</p></center></th>
 				<th><center><p class="font-italic">Nombre</p></center></th>
 				<th><center><p class="font-italic">Rol</p></center></th>
-              	<th><center><p class="font-italic">Usuario</p></center></th>
-              	<th><center><p class="font-italic">Password</p></center></th>
-              	<th><center><p class="font-italic">E-mail</p></center></th>
-              	<th><center><p class="font-italic">imagen</p></center></th>
-              	<th><center><p class="font-italic">Opciones</p></center></th>
+        <th><center><p class="font-italic">Usuario</p></center></th>
+        <th><center><p class="font-italic">Password</p></center></th>
+        <th><center><p class="font-italic">E-mail</p></center></th>
+        <th><center><p class="font-italic">imagen</p></center></th>
+        <th><center><p class="font-italic">Opciones</p></center></th>
 			</tr>
 		</thead>
 		

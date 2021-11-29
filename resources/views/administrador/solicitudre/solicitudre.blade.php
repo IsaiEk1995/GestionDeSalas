@@ -1,4 +1,4 @@
-@extends('layouts.adminlte')
+@extends('layouts.plantilla')
 @section('titulo','Solicitudes_recursos')
 @section('contenido')
 

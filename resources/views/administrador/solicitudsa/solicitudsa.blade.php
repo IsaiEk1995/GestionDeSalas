@@ -1,4 +1,4 @@
-@extends('layouts.adminlte')
+@extends('layouts.plantilla')
 @section('titulo','Solicitudes Agendadas')
 @section('contenido')
 

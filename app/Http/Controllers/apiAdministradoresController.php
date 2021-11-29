@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Rol;
 use App\Administrador;
 
 class apiAdministradoresController extends Controller
@@ -16,14 +15,6 @@ class apiAdministradoresController extends Controller
     public function index()
     {
         //
-        $roles = Rol::all();
-        return view('administrador.admin.admin', ['roles'=>$roles]);
-
-        
-    }
-
-    public function administrador(){
-
         $administrador=Administrador::all();
         return $administrador;
     }

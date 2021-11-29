@@ -21,7 +21,7 @@ class Salas extends Model
     // definimos los campos que van a recivir valor de los que se pueden pedir por el usuario.
     protected $fillable=[
     	'id_solicitud',
-    	'cedula',
+    	'nick',
     	'id_espacio',
         'fecha_solicitud',
         'fecha_solicitada',
@@ -29,10 +29,8 @@ class Salas extends Model
         'detalle_actividad',
         'aprobado',
         'clave_grupo',
-        'clave_asignatura',
+        'claveAsig',
         'participantes',
         'tipo_solicitud'
-
-
    ];
 }

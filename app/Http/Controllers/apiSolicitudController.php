@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Solicitud;
+use Session;
+use DB;
 
 class apiSolicitudController extends Controller
 {
@@ -15,7 +17,8 @@ class apiSolicitudController extends Controller
     public function index()
     {
         //
-        return $solicitudes = Solicitud::all();
+        $solicitudes = Session::get('nick');
+        return $dd = Solicitud::where('nick','=',$solicitudes)->get();
     }
 
     /**

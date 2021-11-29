@@ -10,7 +10,6 @@
   <!-- Favicons -->
   <link href="img/logoutc.png" rel="icon">
   <link href="img/logoutc.png" rel="logoutc.png">
- 
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700|Raleway:300,400,400i,500,500i,700,800,900" rel="stylesheet">
@@ -42,7 +41,6 @@
   <div id="preloader"></div>
 
   <header>
-  
     <!-- header-area start -->
     <div id="sticker" class="header-area">
       <div class="container">
@@ -79,13 +77,11 @@
   </header>
   <!-- header end -->
 
-   
+
  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <section class="content container-fluid">
-    
       @yield('contenido')
-    
     </section>
   </div>
 </body>
@@ -102,7 +98,7 @@
   <script src="css2/lib/wow/wow.min.js"></script>
   <script src="css2/lib/parallax/parallax.js"></script>
   <script src="css2/lib/easing/easing.min.js"></script>
-  <script src="css2/lib/nivo-slider/js/jquery.nivo.slider.js" type="text/javascript"></script>
+  <script src="css2/lib/nivo-slider/js/jquery.nivo.slider.js"></script>
   <script src="css2/lib/appear/jquery.appear.js"></script>
   <script src="css2/lib/isotope/isotope.pkgd.min.js"></script>
 

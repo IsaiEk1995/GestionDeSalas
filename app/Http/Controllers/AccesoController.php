@@ -29,7 +29,7 @@ class AccesoController extends Controller
 
             Session::put('usuario',$user);
             Session::put('rol',$resp[0]->rol->rol);
-          
+            Session::put('nick',$resp[0]->nick);
 
             if($resp[0]->rol->rol=="Administrador")
               return Redirect::to('home');

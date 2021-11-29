@@ -10,10 +10,10 @@ new Vue({
 
 	el:'#solicitud',
 	data:{
-		// buscar:'',
+	
 		solicitudes:[],
 		id_solicitud:'',
-		// cedula:'',
+		// nick:'',
 		id_espacio:'',
 		fecha_solicitud:'',
 		// fecha_solicitada:'',
@@ -23,8 +23,9 @@ new Vue({
 		// aprobado:'',
 		// activa:'',
 		// clave_grupo:'',
-		clave_asignatura:'',
+		ClaveAsig:'',
 		participantes:'',
+		// buscar:'',
 		// tipo_solicitud:'',
 
 	},
@@ -40,5 +41,14 @@ new Vue({
 				console.log(json.data);
 			});
 		},
+		// computed: {
+		// 	filtroDoce: function() {
+		// 		return this.solicitudes.filter((x) => {
+		// 			return x.id_espacio.match(this.buscar.trim()) ||
+		// 				x.id_espacio.toLowerCase()
+		// 				.match(this.buscar.trim().toLowerCase());
+		// 		});
+		// 	},
+		// },
 	}
 });

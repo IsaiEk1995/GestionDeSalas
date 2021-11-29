@@ -14,7 +14,7 @@ new Vue({
     data: {
         solicitudsa: [],
         id_solicitud: '',
-        cedula: '',
+        nick: '',
         id_espacio: '',
         fecha_solicitud: '',
         fecha_solicitada: '',
@@ -24,7 +24,7 @@ new Vue({
         aprobado: '',
         activa: '',
         clave_grupo: '',
-        clave_asignatura: '',
+        ClaveAsig: '',
         participantes: '',
         tipo_solicitud: '',
         buscar: '',
@@ -47,7 +47,7 @@ new Vue({
             this.$http.get(urlSal + '/' + id)
                 .then(function(json) {
                     this.id_solicitud = json.data.id_solicitud;
-                    this.cedula = json.data.cedula;
+                    this.nick = json.data.nick;
                     this.id_espacio = json.data.id_espacio;
                     this.fecha_solicitud = json.data.fecha_solicitud;
                     this.fecha_solicitada = json.data.fecha_solicitada;
@@ -57,7 +57,7 @@ new Vue({
                     this.aprobado = json.data.aprobado;
                     this.activa = json.data.activa;
                     this.clave_grupo = json.data.clave_grupo;
-                    this.clave_asignatura = json.data.clave_asignatura;
+                    this.ClaveAsig = json.data.ClaveAsig;
                     this.participantes = json.data.participantes;
                     this.tipo_solicitud = json.data.tipo_solicitud;
 

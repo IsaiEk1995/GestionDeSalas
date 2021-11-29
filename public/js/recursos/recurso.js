@@ -40,15 +40,29 @@ new Vue({
 		},
 
 		eliminarRec:function(id){
-			var resp=confirm("¿Estas Seguro Que Deseas Eliminar?")
-			if(resp==true)
-			{
+			Swal.fire({
+				title: '¿Estas Seguro Que Deseas Eliminar?',
+				text: "",
+				icon: 'warning',
+				showCancelButton: true,
+				confirmButtonColor: '#3085d6',
+				cancelButtonColor: '#d33',
+				confirmButtonText: 'Eliminar'
+			  }).then((result) => {
+				if (result.isConfirmed) {
+						
 				this.$http.delete(urlRec + '/' + id)
 				.then(function(json){
 				this.getRec();
 				});
-			}
-			
+
+				  Swal.fire(
+					'¡Eliminado Exitosamente!',
+					'',
+					'success'
+				  )
+				}
+			  });
 		},
 
 		agregarRec:function(){
@@ -60,13 +74,20 @@ new Vue({
 				this.id_recurso='';
 				this.recurso='';
 
-			this.$http.post(urlRec,rec)
-			.then(function(response){
-				this.getRec();
-				alert('Se Ha Agregado Con Exito');
-			});
-
-		},
+				this.$http.post(urlRec,rec)
+				.then(function(response){
+					Swal.fire({
+						position:"center",
+						icon:"success",
+						title:"¡Agregado Exitosamente!",
+						showConfirButton: false,
+						timer: 2000,
+					});
+					this.getRec();
+					
+				});
+	
+			},
 
 		actualizarRec:function(id){
 			// crear un json 
@@ -78,11 +99,18 @@ new Vue({
 
 			this.$http.patch(urlRec + '/' + id,rec)
 			.then(function(json){
+				Swal.fire({
+					position:"center",
+					icon:"success",
+					title:"¡Actualizado Exitosamente!",
+					showConfirButton: false,
+					timer: 2000,
+				});
 				this.getRec();
 				this.limpiar();
+
 			})
 		},
-
 		limpiar:function(){
 				
 				this.id_recurso='';

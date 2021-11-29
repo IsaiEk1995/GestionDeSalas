@@ -14,7 +14,7 @@
     <script src="calendar/daygrid/main.js"></script>
     <script src="calendar/list/main.js"></script>
     <script src="calendar/timegrid/main.js"></script>
-<div class="container">
+
      <script>
 
       document.addEventListener('DOMContentLoaded', function() {
@@ -109,8 +109,6 @@
       });
 
     </script>
-
-  </div>
     
 @endsection
 

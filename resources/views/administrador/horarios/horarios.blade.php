@@ -1,4 +1,4 @@
-@extends('layouts.adminlte')
+@extends('layouts.plantilla')
 @section('titulo','Administrar Horarios')
 @section('contenido')
 

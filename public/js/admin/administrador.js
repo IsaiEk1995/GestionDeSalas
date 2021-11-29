@@ -16,8 +16,9 @@ new Vue({
 		password:'',
 		nombre:'',
 		apellidos:'',
-		id_rol:'',
-		// active:'Administrador',
+		id_rol:1,
+		buscar:'',
+		active:'Administrador',
 		
 	},
 
@@ -41,20 +42,34 @@ new Vue({
 				this.nombre=json.data.nombre;
 				this.apellidos=json.data.apellidos;
 				this.id_rol=json.data.id_rol;
-				// this.active=json.data.active;
+				this.active=json.data.active;
 			});
 		},
 
 		eliminarAdmin:function(id){
-			var resp=confirm("¿Estas Seguro Que Deseas Eliminar?")
-			if(resp==true)
-			{
+			Swal.fire({
+				title: '¿Estas Seguro Que Deseas Eliminar?',
+				text: "",
+				icon: 'warning',
+				showCancelButton: true,
+				confirmButtonColor: '#3085d6',
+				cancelButtonColor: '#d33',
+				confirmButtonText: 'Eliminar'
+			  }).then((result) => {
+				if (result.isConfirmed) {
+						
 				this.$http.delete(urlAdmin + '/' + id)
 				.then(function(json){
 				this.getAdmin();
 				});
-			}
-			
+
+				  Swal.fire(
+					'¡Eliminado Exitosamente!',
+					'',
+					'success'
+				  )
+				}
+			  });
 		},
 
 		agregarAdmin:function(){
@@ -64,24 +79,30 @@ new Vue({
 				nombre:this.nombre,
 				apellidos:this.apellidos,
 				id_rol:this.id_rol,
-				// active:this.active,
+				active:this.active,
 			};
 
 				this.nick='';
 				this.password='';
 				this.nombre='';
 				this.apellidos='';
-				this.id_rol='';
-				// this.active='Administrador';
+				this.id_rol=1;
+				this.active='Administrador';
 	
-			this.$http.post(urlAdmin,admin)
-			.then(function(response){
-				this.getAdmin();
-				alert('Se Ha Agregado Con Exito');
-			});
-
-		},
-
+				this.$http.post(urlAdmin,admin)
+				.then(function(response){
+					Swal.fire({
+						position:"center",
+						icon:"success",
+						title:"¡Agregado Exitosamente!",
+						showConfirButton: false,
+						timer: 2000,
+					});
+					this.getAdmin();
+					
+				});
+	
+			},
 		actualizarAdmin:function(id){
 			// crear un json 
 			var admin={
@@ -90,15 +111,23 @@ new Vue({
 				nombre:this.nombre,
 				apellidos:this.apellidos,
 				id_rol:this.id_rol,
-				// active:this.active,
+				active:this.active,
 				
 					  }
 		    console.log();
 
 			this.$http.patch(urlAdmin + '/' + id,admin)
 			.then(function(json){
+				Swal.fire({
+					position:"center",
+					icon:"success",
+					title:"¡Actualizado Exitosamente!",
+					showConfirButton: false,
+					timer: 2000,
+				});
 				this.getAdmin();
 				this.limpiar();
+
 			})
 		},
 
@@ -108,12 +137,21 @@ new Vue({
 				this.nombre='';
 				this.apellidos='';
 				this.id_rol='';
-				// this.active='';
+				this.active='';
 				
 			
 		}
 
 	},
+	computed:{
+		filtroAdmin:function(){
+			return this.administradores.filter((x)=>{
+				return x.nombre.match(this.buscar.trim()) ||
+					x.nombre.toLowerCase()
+					 .match(this.buscar.trim().toLowerCase());
+					});
+				},
+		},
 
 });
 

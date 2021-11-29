@@ -1,4 +1,4 @@
-@extends('layouts.adminltedocentes')
+@extends('layouts.plantilladocentes')
 @section('titulo','Configuración')
 @section('contenido')
 

@@ -13,17 +13,17 @@ class Solicitud extends Model
     public $timestamps=false;
     protected $fillable=[
         'id_solicitud',
-        // 'cedula',
+        // 'nick',
         'id_espacio',
         'fecha_solicitud',
         // 'fecha_solicitada',
         // 'fecha_autorizacion',
         'titulo_actividad',
         'detalle_actividad',
-        // 'aprobado',
+        'aprobado',
         // 'activa',
         // 'clave_grupo',
-        'clave_asignatura',
+        'ClaveAsig',
         'participantes'
         // 'tipo_solicitud'
     ];

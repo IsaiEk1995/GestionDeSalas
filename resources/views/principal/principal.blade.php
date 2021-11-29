@@ -2,6 +2,8 @@
 @section('titulo','Bienvenida')
 @section('contenido')
 
+
+
       <!-- direction 1 -->
       <div id="slider-direction-1" class="slider-direction slider-one">
         <div class="container">
@@ -18,21 +20,22 @@
                 </div>
                 <!-- layer 3 -->
                 <div class="layer-1-3 hidden-xs wow slideInUp" data-wow-duration="2s" data-wow-delay=".2s">
-                  <a class="ready-btn right-btn page-scroll" href="galeria">Ver Galeria</a>
-                  <a class="ready-btn page-scroll" href="login">Agendar Sala</a>
+                  <a class="ready-btn right-btn page-scroll" href="calendario">Ver Calendario</a>
+                  <a class="ready-btn page-scroll" href="login">Iniciar Sesión</a>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-     
+
       <div id="inicio" class="slider-area">
-        <div class="bend niceties preview-2">
-        <div id="ensign-nivoslider" class="slides">
+    <div class="bend niceties preview-2">
+      <div id="ensign-nivoslider" class="slides">
         <img src="img/slider/PORTADA.jpg" alt="" title="#slider-direction-1" />
         <!--<img src="img/slider/slider2.jpg" alt="" title="#slider-direction-2" />
         <img src="img/slider/slider3.jpg" alt="" title="#slider-direction-3" />-->
       </div>
-
+    </div>
+  </div>
 @endsection

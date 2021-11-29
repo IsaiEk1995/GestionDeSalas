@@ -34,8 +34,8 @@ Route::view('calendario','principal.calendario');
 
 
 //Vista De Adminlte
-Route::view('administrador','layouts.adminlte');
-Route::view('docentes', 'layouts.adminltedocentes');
+Route::view('administrador','layouts.plantilla');
+Route::view('docentes', 'layouts.plantilladocentes');
 
 //Vista administrador
 Route::view('horas','administrador.horarios.horarios');
@@ -45,7 +45,9 @@ Route::view('solicitudre','administrador.solicitudre.solicitudre');
 Route::view('home','administrador.home.home');
 Route::view('escritorio','administrador.home.home');
 Route::view('solicitudsa','administrador.solicitudsa.solicitudsa');
+Route::view('usuarios','administrador.usuarios.usuarios');
 Route::view('administradores','administrador.admin.admin');
+Route::view('adminis','administrador.adminis.adminis');
 
 
 //Vista docentes
@@ -54,6 +56,8 @@ Route::view('solicitudes','docentes.historialsolicitudes.historialsolicituds');
 Route::view('panelsolicitudes','docentes.paneldesolicitudes.panelsolicituds');
 Route::view('solicitudrecurso','docentes.solicitudes.solicitudrecurso');
 Route::view('solicitudsala','docentes.solicitudes.solicitudsala');
+//Route::view('calendario','principal.calendario');
+Route::view('saladocente','docentes.salas.sala');
 
 
 Route::get('solicitudsala', 'apiSolController@index')->name('solicitudsala.solicitudsala');
@@ -62,7 +66,6 @@ Route::get('solicitudsala', 'apiSolController@index')->name('solicitudsala.solic
 
 //Apis Vistas
 Route::apiResource('apiSalas','apiSalasController');
-//Route::apiResource('apiRol','apiRolController');
 Route::apiResource('apiRecursos','apiRecursosController');
 Route::apiResource('apisolicitudsa','apisolicitudsaController');
 Route::apiResource('apiDocentes','apiDocentesController');
@@ -72,12 +75,11 @@ Route::apiResource('apiHorarios','apiHorarioController');
 //Route::apiResource('apiRecursos','apiRecursosController');
 //Route::apiResource('apiDocentes','apiDocentesController');
 Route::apiResource('apiSol','apiSolController');
-Route::apiResource('apiRol','apiRolController');
 Route::apiResource('apiSolicitud','apiSolicitudController');
 
 Route::apiResource('apiAdministrador','apiAdministradoresController');
 
-// Route::apiResource('apiHistorial','apiHistorialController');
+Route::apiResource('apiAdminis','apiAdminisController');
 
 
 //Rutas de botones
@@ -89,9 +91,11 @@ Route::get('cancelar/{ruta}', function($ruta) {
 //peticiones post éste es la que permite guardar las solicitudes
 Route::post('solicitudsala','apiSolController@store');
 
-//PDF
-// Route::get('imprimir/{id}','apiSolController@imprimir');
+// PDF
+Route::get('imprimir/{id}','apiSolController@imprimir');
 // Route::get('imprimir2/{id}','apiSolController@imprimir2');
 
 
 Route::apiResource('apiRelacion','apiRelacionController');
+
+Route::view('Prueba','prueba.prueba');
